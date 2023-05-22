@@ -1,10 +1,10 @@
-package com.godelivery.godeliveryapi;
+package com.godelivery.godelivery;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GodeliveryApiApplicationTests {
+class GoDeliveryApplicationTests {
 
 	@Test
 	void contextLoads() {

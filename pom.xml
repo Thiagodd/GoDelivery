@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.godelivery</groupId>
-	<artifactId>godelivery-api</artifactId>
+	<artifactId>go </artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>godelivery-api</name>
+	<name>GoDelivery</name>
 	<description>A RestFul API from a delivery platform</description>
 	<properties>
 		<java.version>17</java.version>
@@ -36,6 +36,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

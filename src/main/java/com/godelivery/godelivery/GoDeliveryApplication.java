@@ -1,13 +1,13 @@
-package com.godelivery.godeliveryapi;
+package com.godelivery.godelivery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GodeliveryApiApplication {
+public class GoDeliveryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GodeliveryApiApplication.class, args);
+		SpringApplication.run(GoDeliveryApplication.class, args);
 	}
 
 }
