@@ -5,6 +5,7 @@ import com.godelivery.godelivery.domain.repository.CookeryRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,8 +42,11 @@ public class CookeryRepositoryImpl implements CookeryRepository {
 
     @Override
     @Transactional
-    public void remove(Cookery cookery) {
-        Cookery currentCookery = this.findById(cookery.getId());
+    public void deleteById(Long id) {
+        Cookery currentCookery = this.findById(id);
+        if (currentCookery == null) {
+            throw new EmptyResultDataAccessException(1);
+        }
         entityManager.remove(currentCookery);
     }
 }

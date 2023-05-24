@@ -14,16 +14,16 @@ public class RemoveCookeryMain {
 
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new SpringApplicationBuilder(GoDeliveryApplication.class).web(WebApplicationType.NONE).run(args);
-        CookeryRepository cookeryRepository = applicationContext.getBean(CookeryRepository.class);
-
-        System.out.println(ANSI_GREEN);
-
-        Cookery toRemoveCookery = new Cookery();
-        toRemoveCookery.setId(1L);
-
-        cookeryRepository.remove(toRemoveCookery);
-
-        System.out.println(ANSI_RESET);
+//        ApplicationContext applicationContext = new SpringApplicationBuilder(GoDeliveryApplication.class).web(WebApplicationType.NONE).run(args);
+//        CookeryRepository cookeryRepository = applicationContext.getBean(CookeryRepository.class);
+//
+//        System.out.println(ANSI_GREEN);
+//
+//        Cookery toRemoveCookery = new Cookery();
+//        toRemoveCookery.setId(1L);
+//
+//        cookeryRepository.remove(toRemoveCookery);
+//
+//        System.out.println(ANSI_RESET);
     }
 }
