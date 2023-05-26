@@ -6,7 +6,6 @@ import com.godelivery.godelivery.domain.model.Cookery;
 import com.godelivery.godelivery.domain.repository.CookeryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,28 +14,24 @@ public class RegisterCookeryService {
     @Autowired
     private CookeryRepository cookeryRepository;
 
-    public Cookery insert(Cookery cookery){
-        return cookeryRepository.insert(cookery);
+    public Cookery save(Cookery cookery) {
+        return cookeryRepository.save(cookery);
     }
 
-    public Cookery update(Cookery cookery){
-        return cookeryRepository.update(cookery);
+    public Cookery update(Cookery cookery) {
+        return cookeryRepository.save(cookery);
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
+        if (!cookeryRepository.existsById(id)) {
+            throw new EntityNotFoundException(String.format(">>No Cookery record found with ID %d.", id));
+        }
         try {
             cookeryRepository.deleteById(id);
-        } catch (EmptyResultDataAccessException e){
-            throw new EntityNotFoundException(String.format(">>There is no Cookery record with id %d", id));
-        }
-        catch (DataIntegrityViolationException e){
-            throw new EntityInUseException(String.format(">>Cookery with code %d cannot be deleted as it is in use.", id));
+        } catch (DataIntegrityViolationException e) {
+            throw new EntityInUseException(String.format(">>Cookery with ID %d cannot be deleted as it is currently in use.", id));
         }
     }
-
-
-
-
 
 
 }
