@@ -1,9 +1,10 @@
 package com.godelivery.godelivery.domain.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
+@Getter
+@Setter
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity

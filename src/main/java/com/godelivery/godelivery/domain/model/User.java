@@ -7,7 +7,6 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,26 +14,29 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Restaurant {
+public class User {
 
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(nullable = false)
     private String name;
 
-    @Column(name = "delivery_fee", nullable = false)
-    private BigDecimal deliveryFee;
+    @Column(nullable = false)
+    private String email;
 
-    @ManyToOne()
-    @JoinColumn(name = "cookery_id", nullable =  false)
-    private Cookery cookery;
+    @Column(nullable = false)
+    private String password;
 
-    @JsonIgnore
-    @Embedded
-    private Address address;
+    @ManyToMany
+    @JoinTable(name = "user_compilation", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "compilation_id"))
+    private List<Group> Groups = new ArrayList<>();
+
+    /*
+     @JoinTable(name = "", joinColumns = @JoinColumn(name = ""), inverseJoinColumns = @JoinColumn(name = ""))
+     */
 
     @JsonIgnore
     @CreationTimestamp
@@ -45,12 +47,4 @@ public class Restaurant {
     @UpdateTimestamp()
     @Column(nullable = false, columnDefinition = "datetime")
     private LocalDateTime updateTimestamp;
-
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(name = "restaurants_payment_methods", joinColumns = @JoinColumn(name = "restaurant_id"), inverseJoinColumns = @JoinColumn(name = "payment_methods_id"))
-    private List<PaymentMethods> paymentMethods = new ArrayList<>();
-
-    @OneToMany(mappedBy = "restaurant")
-    private List<Product> products = new ArrayList<>();
 }

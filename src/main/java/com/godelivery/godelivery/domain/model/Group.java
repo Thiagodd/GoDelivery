@@ -1,6 +1,6 @@
 package com.godelivery.godelivery.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,18 +11,16 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Cookery {
+public class Group {
 
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
     private String name;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "cookery")
-    private List<Restaurant> restaurants = new ArrayList<>();
-
+    @ManyToMany
+    @JoinTable(name = "group_permission", joinColumns = @JoinColumn(name = "compilation_id"), inverseJoinColumns = @JoinColumn(name = "permission_id"))
+    private List<Permission> permissions = new ArrayList<>();
 }

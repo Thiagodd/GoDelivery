@@ -5,24 +5,31 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Cookery {
+public class Product {
 
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(nullable = false)
     private String name;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "cookery")
-    private List<Restaurant> restaurants = new ArrayList<>();
+    @Column(nullable = false)
+    private String description;
 
+    @Column(nullable = false)
+    private BigDecimal price;
+
+    @Column(nullable = false)
+    private Boolean active;
+
+    @JsonIgnore
+    @ManyToOne
+    private Restaurant restaurant;
 }

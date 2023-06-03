@@ -31,7 +31,7 @@ public class RegisterRestaurantService {
         Cookery existingCookery = cookeryExists(restaurant.getCookery().getId());
         Restaurant existingRestaurant = restaurantExists(id);
 
-        BeanUtils.copyProperties(restaurant, existingRestaurant, "id");
+        BeanUtils.copyProperties(restaurant, existingRestaurant, "id", "paymentMethods", "Address", "creationTimestamp");
         existingRestaurant.setCookery(existingCookery);
         return restaurantRepository.save(existingRestaurant);
     }
