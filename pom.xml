@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.godelivery</groupId>
-    <artifactId>go</artifactId>
+    <artifactId>GoDelivery</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>GoDelivery</name>
     <description>A RestFul API from a delivery platform</description>
@@ -44,6 +44,12 @@
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-mysql</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+
 
     </dependencies>
 

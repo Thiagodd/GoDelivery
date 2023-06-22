@@ -15,7 +15,7 @@ create table permission
 ) engine = InnoDB charset=UTF8MB4;
 create table group_permission
 (
-    compilation_id bigint not null,
+    group_id bigint not null,
     permission_id  bigint not null
 ) engine = InnoDB charset=UTF8MB4;
 create table product
@@ -74,7 +74,7 @@ create table user_group
 ) engine = InnoDB charset=UTF8MB4;
 
 alter table group_permission add constraint FK_compilation_permission foreign key (permission_id) references permission (id);
-alter table group_permission add constraint FK_permission_compilation foreign key (compilation_id) references `group` (id);
+alter table group_permission add constraint FK_permission_compilation foreign key (group_id) references `group` (id);
 alter table product add constraint FK_product_restaurant foreign key (restaurant_id) references restaurant (id);
 alter table restaurant add constraint FK_restaurant_city foreign key (address_city_id) references city (id);
 alter table restaurant add constraint FK_restaurant_cookery foreign key (cookery_id) references cookery (id);
