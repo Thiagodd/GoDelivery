@@ -9,12 +9,12 @@ import lombok.EqualsAndHashCode;
 @Entity
 public class PaymentMethod {
 
-    @Id
-    @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+ @Id
+ @EqualsAndHashCode.Include
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ private Long id;
 
-    @Column(nullable = false)
-    private String description;
+ @Column(nullable = false)
+ private String description;
 
 }

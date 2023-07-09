@@ -10,15 +10,15 @@ import java.io.Serial;
 @ResponseStatus(value = HttpStatus.CONFLICT)
 public class EntityInUseException extends RuntimeException {
 
-  @Serial
-  private static final long serialVersionUID = -6610938185317576701L;
+ @Serial
+ private static final long serialVersionUID = -6610938185317576701L;
 
-  public EntityInUseException(Long id, String entityName) {
-    super(String.format("Não foi possível excluir %s com o ID %d. A cidade está em uso e não pode ser removido no " +
-        "momento.", entityName, id));
-  }
+ public EntityInUseException(Long id, String entityName) {
+  super(String.format("Não foi possível excluir %s com o ID %d. A cidade está em uso e não pode ser removido no " +
+      "momento.", entityName, id));
+ }
 
-  public EntityInUseException(String message) {
-    super(message);
-  }
+ public EntityInUseException(String message) {
+  super(message);
+ }
 }

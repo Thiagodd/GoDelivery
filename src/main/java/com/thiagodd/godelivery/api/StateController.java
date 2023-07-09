@@ -11,37 +11,37 @@ import java.util.List;
 @RequestMapping("/states")
 public class StateController {
 
-  private final RegisterStateService registerStateService;
+ private final RegisterStateService registerStateService;
 
-  public StateController(RegisterStateService registerStateService) {
-    this.registerStateService = registerStateService;
-  }
+ public StateController(RegisterStateService registerStateService) {
+  this.registerStateService = registerStateService;
+ }
 
-  @GetMapping
-  public List<State> findAll() {
-    return registerStateService.findAll();
-  }
+ @GetMapping
+ public List<State> findAll() {
+  return registerStateService.findAll();
+ }
 
-  @GetMapping("/{id}")
-  public State findById(@PathVariable Long id) {
-    return registerStateService.findById(id);
-  }
+ @GetMapping("/{id}")
+ public State findById(@PathVariable Long id) {
+  return registerStateService.findById(id);
+ }
 
-  @PostMapping
-  @ResponseStatus(HttpStatus.CREATED)
-  public State save(@RequestBody State state) {
-    return registerStateService.save(state);
-  }
+ @PostMapping
+ @ResponseStatus(HttpStatus.CREATED)
+ public State save(@RequestBody State state) {
+  return registerStateService.save(state);
+ }
 
-  @PutMapping("/{id}")
-  public State update(@PathVariable Long id, @RequestBody State newState) {
-    newState.setId(id);
-    return registerStateService.update(newState);
-  }
+ @PutMapping("/{id}")
+ public State update(@PathVariable Long id, @RequestBody State newState) {
+  newState.setId(id);
+  return registerStateService.update(newState);
+ }
 
-  @DeleteMapping("/{id}")
-  @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void deleteById(@PathVariable Long id) {
-    registerStateService.deleteById(id);
-  }
+ @DeleteMapping("/{id}")
+ @ResponseStatus(HttpStatus.NO_CONTENT)
+ public void deleteById(@PathVariable Long id) {
+  registerStateService.deleteById(id);
+ }
 }

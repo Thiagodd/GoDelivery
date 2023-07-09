@@ -17,46 +17,46 @@ import java.util.List;
 @Entity
 public class Order {
 
-  @Id
-  @EqualsAndHashCode.Include
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+ @Id
+ @EqualsAndHashCode.Include
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ private Long id;
 
-  private BigDecimal subTotal;
+ private BigDecimal subTotal;
 
-  private BigDecimal deliveryFee;
+ private BigDecimal deliveryFee;
 
-  @CreationTimestamp
-  @Column(nullable = false, columnDefinition = "datetime")
-  private LocalDateTime creationDate;
+ @CreationTimestamp
+ @Column(nullable = false, columnDefinition = "datetime")
+ private LocalDateTime creationDate;
 
-  @UpdateTimestamp()
-  @Column(nullable = false, columnDefinition = "datetime")
-  private LocalDateTime updateDate;
+ @UpdateTimestamp()
+ @Column(nullable = false, columnDefinition = "datetime")
+ private LocalDateTime updateDate;
 
-  @Column(columnDefinition = "datetime")
-  private LocalDateTime confirmationDate;
+ @Column(columnDefinition = "datetime")
+ private LocalDateTime confirmationDate;
 
-  @Column(columnDefinition = "datetime")
-  private LocalDateTime CanceledDate;
+ @Column(columnDefinition = "datetime")
+ private LocalDateTime CanceledDate;
 
-  @Column(columnDefinition = "datetime")
-  private LocalDateTime deliveredDate;
+ @Column(columnDefinition = "datetime")
+ private LocalDateTime deliveredDate;
 
-  private OrderStatus status;
+ private OrderStatus status;
 
-  @Embedded
-  private Address address;
+ @Embedded
+ private Address address;
 
-  @ManyToOne
-  private User user;
+ @ManyToOne
+ private User user;
 
-  @ManyToOne
-  private Restaurant restaurant;
+ @ManyToOne
+ private Restaurant restaurant;
 
-  @ManyToOne
-  private PaymentMethod paymentMethod;
+ @ManyToOne
+ private PaymentMethod paymentMethod;
 
-  @OneToMany
-  private List<OrderItem> orderItems = new ArrayList<>();
+ @OneToMany
+ private List<OrderItem> orderItems = new ArrayList<>();
 }

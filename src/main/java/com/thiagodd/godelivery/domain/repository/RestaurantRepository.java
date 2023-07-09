@@ -12,22 +12,22 @@ import java.util.Optional;
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
-    //    @Query("from Restaurant where name like %:name% and cookery.id = :id")
-    List<Restaurant> buscarPorNome(String name, @Param("id") Long id);
+ //    @Query("from Restaurant where name like %:name% and cookery.id = :id")
+ List<Restaurant> buscarPorNome(String name, @Param("id") Long id);
 
-    List<Restaurant> findByDeliveryFeeBetween(BigDecimal startingFee, BigDecimal endingFee);
+ List<Restaurant> findByDeliveryFeeBetween(BigDecimal startingFee, BigDecimal endingFee);
 
-    List<Restaurant> findByNameContainingAndCookeryId(String name, Long id);
+ List<Restaurant> findByNameContainingAndCookeryId(String name, Long id);
 
-    Optional<Restaurant> findFirstByNameContaining(String name);
+ Optional<Restaurant> findFirstByNameContaining(String name);
 
-    List<Restaurant> findTop2ByNameContaining(String name);
+ List<Restaurant> findTop2ByNameContaining(String name);
 
-    int countByCookeryId(Long id);
+ int countByCookeryId(Long id);
 
-    List<Restaurant> findByName3(String name, BigDecimal startingFee, BigDecimal endingFee);
+ List<Restaurant> findByName3(String name, BigDecimal startingFee, BigDecimal endingFee);
 
-    List<Restaurant> findByName4(String name, BigDecimal startingFee, BigDecimal endingFee);
+ List<Restaurant> findByName4(String name, BigDecimal startingFee, BigDecimal endingFee);
 
-    List<Restaurant> findByName5(String name, BigDecimal startingFee, BigDecimal endingFee);
+ List<Restaurant> findByName5(String name, BigDecimal startingFee, BigDecimal endingFee);
 }

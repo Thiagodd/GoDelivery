@@ -13,14 +13,14 @@ import java.util.List;
 @Entity
 public class Group {
 
-    @Id
-    @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+ @Id
+ @EqualsAndHashCode.Include
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ private Long id;
 
-    private String name;
+ private String name;
 
-    @ManyToMany
-    @JoinTable(name = "group_permission", joinColumns = @JoinColumn(name = "group_id"), inverseJoinColumns = @JoinColumn(name = "permission_id"))
-    private List<Permission> permissions = new ArrayList<>();
+ @ManyToMany
+ @JoinTable(name = "group_permission", joinColumns = @JoinColumn(name = "group_id"), inverseJoinColumns = @JoinColumn(name = "permission_id"))
+ private List<Permission> permissions = new ArrayList<>();
 }

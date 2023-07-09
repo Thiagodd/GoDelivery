@@ -16,35 +16,35 @@ import java.util.List;
 @Entity
 public class User {
 
-    @Id
-    @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+ @Id
+ @EqualsAndHashCode.Include
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ private Long id;
 
-    @Column(nullable = false)
-    private String name;
+ @Column(nullable = false)
+ private String name;
 
-    @Column(nullable = false)
-    private String email;
+ @Column(nullable = false)
+ private String email;
 
-    @Column(nullable = false)
-    private String password;
+ @Column(nullable = false)
+ private String password;
 
-    @ManyToMany
-    @JoinTable(name = "user_compilation", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "compilation_id"))
-    private List<Group> Groups = new ArrayList<>();
+ @ManyToMany
+ @JoinTable(name = "user_compilation", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "compilation_id"))
+ private List<Group> Groups = new ArrayList<>();
 
     /*
      @JoinTable(name = "", joinColumns = @JoinColumn(name = ""), inverseJoinColumns = @JoinColumn(name = ""))
      */
 
-    @JsonIgnore
-    @CreationTimestamp
-    @Column(nullable = false, columnDefinition = "datetime")
-    private LocalDateTime creationTimestamp;
+ @JsonIgnore
+ @CreationTimestamp
+ @Column(nullable = false, columnDefinition = "datetime")
+ private LocalDateTime creationTimestamp;
 
-    @JsonIgnore
-    @UpdateTimestamp()
-    @Column(nullable = false, columnDefinition = "datetime")
-    private LocalDateTime updateTimestamp;
+ @JsonIgnore
+ @UpdateTimestamp()
+ @Column(nullable = false, columnDefinition = "datetime")
+ private LocalDateTime updateTimestamp;
 }

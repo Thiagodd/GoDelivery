@@ -2,6 +2,7 @@ package com.thiagodd.godelivery.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,16 +14,17 @@ import java.util.List;
 @Entity
 public class Cookery {
 
-    @Id
-    @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+ @NotNull
+ @Id
+ @EqualsAndHashCode.Include
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+ @Column(name = "name", nullable = false)
+ private String name;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "cookery")
-    private List<Restaurant> restaurants = new ArrayList<>();
+ @JsonIgnore
+ @OneToMany(mappedBy = "cookery")
+ private List<Restaurant> restaurants = new ArrayList<>();
 
 }

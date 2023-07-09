@@ -14,18 +14,18 @@ import java.math.BigDecimal;
 @Entity
 public class OrderItem {
 
-  @Id
-  @EqualsAndHashCode.Include
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+ @Id
+ @EqualsAndHashCode.Include
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ private Long id;
 
-  private Integer quantity;
+ private Integer quantity;
 
-  private BigDecimal UnitPrice;
+ private BigDecimal UnitPrice;
 
-  private BigDecimal TotalPrice;
+ private BigDecimal TotalPrice;
 
-  private String note;
+ private String note;
 //
 //  @ManyToOne
 //  private Product product;

@@ -2,6 +2,10 @@ package com.thiagodd.godelivery.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
@@ -23,14 +27,19 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "name", nullable = false)
     private String name;
 
+    @NotNull
+    @PositiveOrZero
     @Column(name = "delivery_fee", nullable = false)
     private BigDecimal deliveryFee;
 
+    @Valid
+    @NotNull
     @ManyToOne()
-    @JoinColumn(name = "cookery_id", nullable =  false)
+    @JoinColumn(name = "cookery_id", nullable = false)
     private Cookery cookery;
 
     @JsonIgnore

@@ -1,17 +1,26 @@
 create table state
 (
-    id bigint not null auto_increment,
+    id   bigint      not null auto_increment,
     name varchar(60) not null,
 
     primary key (id)
-)engine=InnoDB default charset=UTF8MB4;
+) engine = InnoDB
+  default charset = UTF8MB4;
 
-insert into state (name) select distinct name_state from city;
+insert into state (name)
+select distinct name_state
+from city;
 
-alter table city add column state_id bigint not null;
+alter table city
+    add column state_id bigint not null;
 
-update city c set c.state_id = (select state.id from state where state.name = c.name_state) where true;
+update city c
+set c.state_id = (select state.id from state where state.name = c.name_state)
+where true;
 
-alter table city add constraint fk_city_state foreign key (state_id) references state (id);
-alter table city drop column name_state;
-alter table city change name_city name varchar(80) not null;
+alter table city
+    add constraint fk_city_state foreign key (state_id) references state (id);
+alter table city
+    drop column name_state;
+alter table city
+    change name_city name varchar(80) not null;

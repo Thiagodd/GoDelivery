@@ -11,15 +11,15 @@ import java.io.Serial;
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class RestaurantNotFoundException extends EntityNotFoundException {
 
-  @Serial
-  private static final long serialVersionUID = 6189724303377152538L;
+ @Serial
+ private static final long serialVersionUID = 6189724303377152538L;
 
-  public RestaurantNotFoundException(Long id) {
-    super(String.format("Não foi possível encontrar restaurante com o ID %d. Verifique se o ID fornecido está correto" +
-        " entre em contato com o suporte para obter assistência.", id));
-  }
+ public RestaurantNotFoundException(Long id) {
+  super(String.format("Não foi possível encontrar restaurante com o ID %d. Verifique se o ID fornecido está correto" +
+      " entre em contato com o suporte para obter assistência.", id));
+ }
 
-  public RestaurantNotFoundException(String message) {
-    super(message);
-  }
+ public RestaurantNotFoundException(String message) {
+  super(message);
+ }
 }

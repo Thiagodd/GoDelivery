@@ -6,10 +6,10 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum OrderStatus {
-  CRIADO("Criado"),
-  CONFIRMADO("Confirmado"),
-  ENTREGUE("Entregue"),
-  CANCELADO("Cancelado");
+ CRIADO("Criado"),
+ CONFIRMADO("Confirmado"),
+ ENTREGUE("Entregue"),
+ CANCELADO("Cancelado");
 
-  private final String displayName;
+ private final String displayName;
 }

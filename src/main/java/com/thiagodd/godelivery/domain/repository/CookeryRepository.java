@@ -7,8 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CookeryRepository extends JpaRepository<Cookery, Long>{
+public interface CookeryRepository extends JpaRepository<Cookery, Long> {
 
-    List<Cookery> findByNameContaining(String name);
-    boolean existsByName(String name);
+ List<Cookery> findByNameContaining(String name);
+
+ boolean existsByName(String name);
 }

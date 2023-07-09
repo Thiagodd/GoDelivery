@@ -9,15 +9,15 @@ import java.io.Serial;
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class StateNotFoundException extends EntityNotFoundException {
 
-  @Serial
-  private static final long serialVersionUID = 3173591335249251346L;
+ @Serial
+ private static final long serialVersionUID = 3173591335249251346L;
 
-  public StateNotFoundException(Long id) {
-    super(String.format("Não foi possível encontrar estado com o ID %d. Verifique se o ID fornecido está correto ou" +
-        " entre em contato com o suporte para obter assistência.", id));
-  }
+ public StateNotFoundException(Long id) {
+  super(String.format("Não foi possível encontrar estado com o ID %d. Verifique se o ID fornecido está correto ou" +
+      " entre em contato com o suporte para obter assistência.", id));
+ }
 
-  public StateNotFoundException(String message) {
-    super(message);
-  }
+ public StateNotFoundException(String message) {
+  super(message);
+ }
 }

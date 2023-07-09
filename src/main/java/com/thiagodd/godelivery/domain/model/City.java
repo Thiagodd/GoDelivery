@@ -13,14 +13,14 @@ import lombok.Setter;
 @Entity
 public class City {
 
-    @Id
-    @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+ @Id
+ @EqualsAndHashCode.Include
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ private Long id;
 
-    @Column(nullable = false)
-    private String name;
+ @Column(nullable = false)
+ private String name;
 
-    @ManyToOne(optional = false)
-    private State state;
+ @ManyToOne(optional = false)
+ private State state;
 }

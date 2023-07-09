@@ -9,16 +9,16 @@ import java.io.Serial;
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class CookeryNotFoundException extends EntityNotFoundException {
 
-  @Serial
-  private static final long serialVersionUID = 2682502456208031173L;
+ @Serial
+ private static final long serialVersionUID = 2682502456208031173L;
 
 
-  public CookeryNotFoundException(Long id) {
-    super(String.format("Não foi possível encontrar cozinha com o ID %d. Verifique se o ID fornecido está correto ou" +
-        " entre em contato com o suporte para obter assistência.", id));
-  }
+ public CookeryNotFoundException(Long id) {
+  super(String.format("Não foi possível encontrar cozinha com o ID %d. Verifique se o ID fornecido está correto ou" +
+      " entre em contato com o suporte para obter assistência.", id));
+ }
 
-  public CookeryNotFoundException(String message) {
-    super(message);
-  }
+ public CookeryNotFoundException(String message) {
+  super(message);
+ }
 }

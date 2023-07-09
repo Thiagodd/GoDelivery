@@ -12,37 +12,37 @@ import java.util.List;
 public class PermissionController {
 
 
-    private final RegisterPermissionService registerPermissionService;
+ private final RegisterPermissionService registerPermissionService;
 
-    public PermissionController(RegisterPermissionService registerPermissionService) {
-        this.registerPermissionService = registerPermissionService;
-    }
+ public PermissionController(RegisterPermissionService registerPermissionService) {
+  this.registerPermissionService = registerPermissionService;
+ }
 
-    @GetMapping
-    public List<Permission> findAll() {
-        return registerPermissionService.findAll();
-    }
+ @GetMapping
+ public List<Permission> findAll() {
+  return registerPermissionService.findAll();
+ }
 
-    @GetMapping("/{id}")
-    public Permission findById(@PathVariable Long id) {
-        return registerPermissionService.findById(id);
-    }
+ @GetMapping("/{id}")
+ public Permission findById(@PathVariable Long id) {
+  return registerPermissionService.findById(id);
+ }
 
-    @PostMapping
-    public Permission insert(@RequestBody Permission newPermission) {
-        return registerPermissionService.insert(newPermission);
-    }
+ @PostMapping
+ public Permission insert(@RequestBody Permission newPermission) {
+  return registerPermissionService.insert(newPermission);
+ }
 
-    @PutMapping("/{id}")
-    public Permission update(@PathVariable Long id, @RequestBody Permission newPermission) {
-        newPermission.setId(id);
-        return registerPermissionService.update(newPermission);
-    }
+ @PutMapping("/{id}")
+ public Permission update(@PathVariable Long id, @RequestBody Permission newPermission) {
+  newPermission.setId(id);
+  return registerPermissionService.update(newPermission);
+ }
 
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable Long id) {
-        registerPermissionService.deleteById(id);
-    }
+ @DeleteMapping("/{id}")
+ @ResponseStatus(HttpStatus.NO_CONTENT)
+ public void deleteById(@PathVariable Long id) {
+  registerPermissionService.deleteById(id);
+ }
 
 }
